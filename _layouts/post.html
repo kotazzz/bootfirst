@@ -1,23 +1,13 @@
 ---
 layout: default
+leftcontent: |
+ <h2>{{ page.title | escape }}</h2>
+ <h3>{{ page.author | escape }}</h3>
+ <time datetime="{{ page.date | date_to_xmlschema }}">
+         {%- assign date_format = "%b %-d, %Y" -%}
+         {{ page.date | date: date_format }}
+ </time>
 ---
 <article>
-
-  <header>
-    <h1>{{ page.title | escape }}</h1>
-    <p class="text-muted">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {%- assign date_format = "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • {{ page.author }}
-      {%- endif -%}
-    </p>
-  </header>
-
-  <section>
-    {{ content }}
-  </section>
-
+{{ content }}
 </article>

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
-
   {%- include head.html -%}
-
   <body>
-
     {%- include header.html -%}
-
-    <div class="py-5">
-      <div class="container page-content">
-          {{ content }}
-      </div>
-    </div>
-
+	<main class="container row py-5 px-3">
+			<section class="col-sm-3">
+				<div class="card card-body">
+					
+					{% if page.leftcontent %}
+						{{ page.leftcontent }}
+					{% else %}
+					<h2 class="card-title text-center">NewLife</h2>
+					<img class="img-fluid rounded-circle" src="https://cdn.discordapp.com/avatars/820647850571595786/4313bc007a7a018d7fab856982c1e93b.png?size=512" alt="avatar">
+					<a href='https://vk.com/kotazz' class="badge badge-light bc-vkontakte"><i class="fab fa-vk"></i> ВКонтакте</a>
+					<a href='https://discord.gg/EDhRWE3GfY' class="badge badge-light bc-discord"><i
+						class="fab fa-discord"></i> Discord</a>
+					  {%- endif -%}
+				</div>
+			</section>
+			<section class="col-sm-9">
+			  {{ content }}
+			</section>
+	</main>
     {%- include footer.html -%}
-
   </body>
-
 </html>
