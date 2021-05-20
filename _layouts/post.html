@@ -1,21 +1,29 @@
----
-layout: default
-leftcontent: |
-
----
-{% capture layout.leftcontent %}
- <h2>{{ page.title | escape }}</h2>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
+  {%- include head.html -%}
+  <body>
+    {%- include header.html -%}
+	<main class="container row py-5 px-3">
+			<section class="col-sm-3">
+				<div class="card card-body">
+					<h4>{{ page.title | escape }}</h4>
  <div> 
         {% for tag in post.tags %}
             <span class="badge badge-primary">{{tag}}</span>
         {% endfor %}
         </div>
- <h3>{{ page.author | escape }}</h3>
+ <h5>{{ page.author | escape }}</h5>
  <time datetime="{{ page.date | date_to_xmlschema }}">
  {%- assign date_format = "%b %-d, %Y" -%}
  {{ page.date | date: date_format }}
  </time>
-{% endcapture %}
-<article>
-{{ content }}
-</article>
+				</div>
+			</section>
+			<section class="col-sm-9">
+			  {{ content }}
+			</section>
+	</main>
+    {%- include footer.html -%}
+  </body>
+</html>
+

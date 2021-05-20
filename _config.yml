@@ -32,6 +32,8 @@ plugins:
 header_pages:
     - index.html
     - home.html
+    - news_post/index.html
+    - server_post/index.html
 
 
   

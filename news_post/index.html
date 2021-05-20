@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Основные
+title: Новости
 category: news_posts
 ---
 
 {% for post in site.posts %}
   {% if post.categories contains 'news_posts' %}
-	<div class="card card-body">
+	<div class="card card-body my-5">
 		<h3 class="card-title">{{ post.title }}</h3>
 		<p class="card-subtitle mb-2 text-muted">Дата публикации: {{ post.date }}</p>
 		<div class="card-text">
