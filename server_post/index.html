@@ -1,24 +1,18 @@
 ---
-title: Все посты
 layout: default
-leftcontent: |
- <p> Тут находятся все посты сайта </p>
+title: Основные
+category: server_post
 ---
 
 {% for post in site.posts %}
-
+  {% if post.categories contains 'server_post' %}
 	<div class="card card-body">
 		<h3 class="card-title">{{ post.title }}</h3>
 		<p class="card-subtitle mb-2 text-muted">Дата публикации: {{ post.date }}</p>
-		<div> 
-		{% for tag in post.tags %}
-			<span class="badge badge-primary">{{tag}}</span>
-		{% endfor %}
-		</div>
-		<div class="card-text my-3">
+		<div class="card-text">
 			{{ post.content | strip_html | truncatewords: 100 }}
 		</div>
 		<a href="{{ post.url }}" class="btn btn-primary">Читать далее</a>
 	</div>
-
+  {% endif %}
 {% endfor %}

@@ -1,0 +1,22 @@
+---
+layout: default
+leftcontent: |
+ <h1>{{ page.servername | escape }}</h1>
+ <img class="img-fluid rounded-circle" src="{{ page.avatar }}" alt="avatar">
+ <h2>{{ page.title | escape }}</h2>
+ <div> 
+        {% for tag in post.tags %}
+            <span class="badge badge-primary">{{tag}}</span>
+        {% endfor %}
+        </div>
+ <h3>{{ page.author | escape }}</h3>
+ <time datetime="{{ page.date | date_to_xmlschema }}">
+         {%- assign date_format = "%b %-d, %Y" -%}
+         {{ page.date | date: date_format }}
+ </time>
+ <a href="https://discord.gg/{{ page.invite }}" class="btn btn-primary"><i class="fab fa-discord"></i> Присоединиться</a>
+---
+
+<article>
+{{ content }}
+</article>

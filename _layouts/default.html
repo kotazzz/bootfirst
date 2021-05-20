@@ -6,9 +6,10 @@
 	<main class="container row py-5 px-3">
 			<section class="col-sm-3">
 				<div class="card card-body">
-					
 					{% if page.leftcontent %}
-						{{ page.leftcontent }}
+						{{ page.leftcontent | liquify }}
+					{% elsif layout.leftcontent %}
+						{{layout.leftcontent | liquify }}
 					{% else %}
 					<h2 class="card-title text-center">NewLife</h2>
 					<img class="img-fluid rounded-circle" src="https://cdn.discordapp.com/avatars/820647850571595786/4313bc007a7a018d7fab856982c1e93b.png?size=512" alt="avatar">
